@@ -1,0 +1,204 @@
+{% extends "essentials_facebook.html" %}
+
+{% block title %}Gifts Homepage{% endblock %}
+
+{% block header %}<link type="text/css" rel="stylesheet" href="/media/css/givalittle.css" />{% endblock %}
+{% block content %}
+
+	<!--<script>(function(d,s,id) {
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) return;
+		js = d.createElement(s); js.id = id;
+		js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=166511093451892";
+		fjs.parentNode.insertBefore(js,fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>-->
+
+
+	<script type="text/javascript" class="alert">
+		function changeClass() {
+			var a = getElementByTagName("body");
+			a.className = "give";
+			return alert("a.className");
+		}
+	
+		function test() {
+			return alert("This is a link");
+		}
+	</script>
+
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script>
+	$(document).ready(function(){
+		var on = true;
+		$("body").addClass("give");
+		function photoHover(parent) {
+			$(parent + " img").addClass("opaque");
+			$(parent + " .title").fadeIn("fast");
+			$(parent + " .offer_link").fadeIn("fast");
+		}
+		function hoverOut(parent){
+			$(parent + " img").removeClass("opaque");
+			$(parent + " .title").fadeOut(300);
+			$(parent + " .offer_link").fadeOut("fast");			
+		}
+		$("#search").focus(function() {
+			if (on)
+				$("div.helper").css('display', 'block').delay(5000).fadeOut("slow");
+			on = false;
+		});
+		$(".stream li").mousemove(function(e) {
+			var x = e.pageX + 50 + "px";
+			var y = e.pageY - 25 + "px";
+			$(this).find(".feed_box").css('left', x);
+			$(this).find(".feed_box").css('top', y);
+			$(this).find(".feed_box").show();
+		}).mouseout(function() {
+			$(this).find(".feed_box").hide();
+		});
+		$(".marquee").hover(function() {photoHover(".marquee");}, function(){ hoverOut(".marquee");});
+		$(".now_playing li").hover(function () {var parent = ".now_playing li#" + this.id; photoHover(parent);}, function(){ var parent = ".now_playing li#" + this.id; hoverOut(parent);});
+		$("form").submit(function() {
+			return false;
+		});
+	});
+	</script>
+	<div class="header">
+		<div class="wrapper">
+			<div id="logo"><img src="">MIRTHDAY<br />gifts for friends</div>
+			<div class="primary">
+				<ul class="nav">
+					<li><a class="nav" id="give" href="/home" onclick="changeClass()"; return false;">GIVE</a></li>
+					<li><a class="nav" id="get" href="/get">GET</a></li>
+					<li><a class="nav" id="got" href="">GOT</a></li>
+				</ul>
+				<span class="clear"></span>
+				<div id="account_menu"> Hi Michael
+					<ul>
+						<li>Account</li>
+						<li>Profile</li>
+						<li>Logout</li>
+					<!-- Will require database connection -->
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+
+		<div id="separator"></div>
+
+	<div class="wrapper">
+	<div class="main">
+
+		<div class="main_content">
+			<div class="marquee">
+				<h2 class="title">Starbucks Coffee, extra cream!</h2>
+				<div class="black_lay"></div>
+				<img src="/media/Images/Gifts/starbucks.gif" width="100%">
+				<div class="offer_link"><a class="offer" href="">view offer</a></div>
+			</div>
+			<h2 class="caption">Orange Mocha Frappuccino at Starbucks. $4.95</h2>
+			<ul class="now_playing">
+				<li id="1">
+					<h2 class="title">Burrito! (or turd in tinfoil)</h2>
+					<div class="black_lay"></div>
+					<img src="/media/Images/Gifts/burrito.jpg" height="100%">
+					<div class="offer_link"><a>view offer</a></div>
+				</li>
+				<li id="2">					
+					<h2 class="title">Hope you're sharing those!</h2>
+					<div class="black_lay"></div>					
+					<img src="/media/Images/Gifts/beers.jpg" height="100%">
+					<div class="offer_link"><a>view offer</a></div>
+				</li>
+				<li id="3">
+					<h2 class="title">This looks tasty!</h2>
+					<div class="black_lay"></div>					
+					<img src="/media/Images/Gifts/italian.jpg" height="100%">
+					<div class="offer_link"><a>view offer</a></div>
+				</li>
+				<li id="4">
+					<h2 class="title">We are arranged haphazardly!</h2>
+					<div class="black_lay"></div>					
+					<img src="/media/Images/Gifts/cupcakes.jpg" height="100%">
+					<div class="offer_link"><a>view offer</a></div>
+				</li>
+				<li id="5">
+					<h2 class="title">Plates make a shitty gift!</h2>
+					<div class="black_lay"></div>					
+					<img src="/media/Images/Gifts/ikea.jpg" height="100%">
+					<div class="offer_link"><a>view offer</a></div>
+				</li>
+				<li id="6">
+					<h2 class="title">Every lady loves flowers</h2>
+					<div class="black_lay"></div>
+					<img src="/media/Images/Gifts/flowers.jpg" height="100%">
+					<div class="offer_link"><a>view offer</a></div>
+				</li>
+			</ul>
+				<!-- Put database gift stuff in here -->
+				<!-- <div class="img-wrapper"><img src="/media/Images/Gifts/pvm.png" width="250" height="250" alt="PVM"></div> -->
+
+		</div>
+		<div class="friends">
+		<div class="helper">Type names, phone numbers, email addresses, and @handles. <br /><span>We'll help you find what they like!</span></div>
+		<form action="" method="post">{% csrf_token %}
+		<input name="name" id="search">
+		<button id="friend_search" type="submit">FIND GIFTS</button>
+		<!--		<div class="fb-login-button" data-show-faces="true" data-width="200" data-max-rows"1" scope="user_birthday,friends_birthday,publish_actions,publish_stream">Sign in with Facebook</div>-->
+		</div>
+
+
+
+			<div id="newsfeed">
+				<h2>Today</h2>
+				<ul class="stream">
+					<li>
+						<span class="user">Michael Koenig</span>'s birthday...
+						<div class="feed_box"><span class="user">Michael Koenig</span>'s birthday is a sad day, because he lacks friends.</div>
+					</li>
+					<li>
+						<span class="user">Pedro Moura</span>'s birthday.
+						<div class="feed_box"><span class="user">Pedro Moura</span>'s birthday is also the universe's birthday. Pedro Moura is the universe.</div>
+					</li>
+					<li>
+						<span class="user">Alexander Dominitz</span>'s birthday.
+						<div class="feed_box"><span class="user">Alexander Dominitz</span>'s birthday. "Please God, just give me sleep for my birthday"</div>
+					</li>
+					<li>
+						<span class="user">Chris Casey</span>: "Wisdom teeth come out 2/23!"
+						<div class="feed_box"><span class="user">Chris Casey</span>: "Wisdom teeth come out 2/23! Another reason to have sex!"</div>
+						</li>
+					<li>
+						<span class="user">Margaret Wang</span>: I want <span class="gift">Melissa's Cupcakes</span> for my...
+						<div class="feed_box"><span class="user">Margaret Wang</span>: I want <span class="gift">Melissa's Cupcakes</span> for my wedding. "I do, red velvet. A thousand times I do."</div>
+					</li>
+					<li>
+						<span class="user">Kathleen Koenigs</span>: Wish I could see <span class="gift">Twilight</span> in theatres.
+						<div class="feed_box"><span class="user">Kathleen Koenigs</span>: Wish I could see <span class="gift">Twilight</span> in theatres...go Team Jacob! By the way, I'm really hot.</div>
+					</li>
+					<li>
+						<span class="user">John Koenigs</span>: Really need a brew after work this week...
+						<div class="feed_box"><span class="user">John Koenigs</span>: Really need a brew after work this week. My brother is a fucking idiot.</div>
+					</li>
+					<li>
+						<span class="user">Ryan Taney</span>: <span class="gift">Cafe Americano</span> for my interview!
+						<div class="feed_box"><span class="user">Ryan Taney</span>: <span class="gift">Cafe Americano</span> for my interview! I am a big friendly giant. But I am very sad.</div>
+					</li>
+				</ul>
+			</div>
+	</div>
+	</div>
+
+		<div class="footer">
+			<div class="wrapper">
+			<ul id="social">
+				<li><img src="/media/Images/design/pinterest.png" width="30" height="30"></li>
+				<li><img src="/media/Images/design/rss.png" width="30" height="30"></li>
+				<li><img src="/media/Images/design/twitter.png" width="30" height="30"></li>
+				<li><img src="/media/Images/design/facebook.gif" width="30" height="30"></li>
+			</ul>
+			</div>
+		</div>
+
+{% endblock %}

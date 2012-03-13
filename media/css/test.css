@@ -1,0 +1,72 @@
+body {
+	text-align: center;
+	/*background: #e8e8e8;*/
+
+}
+
+.redBack {
+	background: red;
+}
+
+.blueBack {
+	background: blue;
+}
+a.test {
+	font-weight: bold;
+}
+
+.wrapper {
+	background: #fff url(/media/Images/examples/secondary-faux-col.gif) repeat-y 25% 0;
+	width: 75em;
+	max-width: 95%;
+	margin: 0 auto;
+	text-align: left;
+	max-width: 125em;
+	min-width: 62em;
+}
+
+.inner-wrapper {
+	background: url(/media/Images/examples/primary-faux-col.gif) repeat-y 71.67% 0;
+}
+
+.header {
+	height: 100px;
+	background: gray;
+}
+
+.footer {
+	height: 68px;
+	background: gray;
+	clear: both;
+}
+
+ul {
+	list-style: none;
+}
+
+.content .primary {
+	width: 72.72%;
+	float: right;
+	display: inline;
+}
+
+.content .secondary {
+/*	background: #d6d6d6;*/
+	width: 25%;
+	float: left;
+	display: inline;
+}
+
+.content .primary .primary {
+	width: 59.7%;
+	float: left;
+	display: inline;
+}
+
+.content .primary .secondary {
+	/*background: #d6d6d6;*/
+	width: 34.33%;
+	padding-right: 2em;
+	float: right;
+	display: inline;
+}

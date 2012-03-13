@@ -1,0 +1,532 @@
+/*div#header { 
+	margin:0;
+	padding:0;
+	width:100%;
+	height:80px;
+	background: blue;
+}*/
+/***GIVE PAGE*****************************************************************************************************************************************/
+/******************************
+ * Body/main wrapper styling  *
+ * Generic stuffies						*
+ ******************************/
+body {
+	background: url(/media/Images/examples/parchment_horiz.jpg) repeat left top;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	font-size: 100%;
+	font-family: Century Gothic;
+}
+
+.give ul.nav a#give, .get ul.nav a#get{
+	background-color: #A50D0D;
+}
+
+.wrapper {
+	min-width:62em;
+	width: 96%;
+	max-width: 75em;
+	min-width: 65em;
+	margin: 0 auto;
+	text-align: left;
+}
+
+ul, li {
+	list-style-type: none;
+	text-decoration: none;
+}
+a {
+	color: white;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.opaque {
+	opacity: 0.35;
+}
+
+
+/******************************
+ * HEADER										  *
+ *														*
+ ******************************/
+.header {
+	background: url(/media/Images/design/header_background.gif) repeat-x left top;
+	width:100%;
+	min-width: 70em;
+	margin:0;
+	padding: 0;
+	height: 3.5em;
+}
+
+#logo {
+	display:block;
+	margin: 0;
+	width: 11%;
+	height: 100%;
+	float:left;
+}
+
+.header .primary {
+	margin: 0;
+	padding: 0;
+	width:55%;
+	min-width: 35em;
+	float: right;
+	overflow: hidden;
+}
+
+
+ul.nav {
+	width: 24em;
+	margin: 0;
+	padding-right: .01em;
+	padding-left: .01em;
+	padding-top: .5em;
+	overflow:hidden;
+	float: left;
+}
+
+
+ul.nav a {
+	display:block;
+	padding:1em 2.5em;
+	line-height: 1em;
+	width: 2em;
+	font-weight:bold;
+	text-decoration:none;
+	-moz-border-radius-topleft: 8px;
+	-moz-border-radius-topright: 8px;
+	-webkit-border-top-left-radius: 8px;
+	-webkit-border-top-right-radius: 8px;
+	color: #fff;
+	-webkit-text-stroke: 0.2px black;
+	text-shadow: 0.5px 0.5px 0.5px black;
+	float: left;
+	margin-right: 1em;
+}
+
+
+ul.nav a:hover {
+	background-color: #A50D0D;
+	color: white;
+}
+
+a[href^="http:"] {
+	text-decoration: underline;
+}
+
+div#account_menu {
+	float:right;
+	width:12em;
+	padding-top: 1em;
+	margin: 0;
+	height: 2.5em;
+	background-color: #CAD8E1;
+	text-align: center;
+}
+
+div#account_menu ul {
+	visibility: hidden;
+	float:right;
+	width: 12em;
+	margin-top: 1em;
+	padding: 0;
+	background-color: #CAD8E1;
+	position: absolute;
+	right: auto;
+	z-index: 10;
+}
+
+div#account_menu ul li {
+	display: block;
+	height: 1.5em;
+	padding: 1em 1em;
+	float:right;
+	width: 10em;
+	border-top: 1px solid #AAAAA9;
+	border-bottom: 1px solid #AAAAA9;
+	margin-right: auto;
+	margin-left: auto;
+	text-align: center;
+	background-color: #CAD8E1;
+}
+
+div#account_menu ul li:hover {
+	background-color: #336688;
+	color: white;
+}
+
+div#account_menu:hover ul {
+	visibility: visible;
+}
+
+/******************************
+ *Separator div						    *
+ *														*
+ ******************************/
+div#separator {
+	background: url(/media/Images/design/separator_background.gif) repeat-x left top;
+	height: .75em;
+	min-width: 100%;
+	clear: both;
+	min-width: 70em;
+}
+/******************************
+ * Main Container					    *
+ *														*
+ ******************************/
+.main {
+	margin: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	padding: 1.8em 0;
+}
+
+.friends {
+	background: #2B698F;
+	width: 23%;
+	min-width: 14.95em;
+	max-width: 17.25em;
+	padding: 1em 1em .5em 1em;
+	margin-bottom: 15px;
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	border-radius: 8px;
+	text-align: center;
+}
+
+input#search {
+	display: block;
+	width: 90%;
+	height: 2.1em;
+	margin: 0;
+	margin-right: auto;
+	margin-left: auto;
+	padding:0;
+	font-size: 1.3em;
+}
+
+
+
+button#friend_search {
+	background: #B3B3B3 url(/media/Images/design/button_gradient.gif) repeat-x left top;
+	width: 175px;
+	height: 70px;
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	border-radius: 8px;
+	border: 0.5px solid #B3B3B3;
+	margin: 1.5em auto 1em auto;
+	padding: .5em;
+	font-size: 1.4em;
+	font-weight: bold;
+	color: #fff;
+	cursor: pointer;
+}
+button#friend_search:hover {
+	background: url(/media/Images/design/button_reverse.gif) repeat-x left top;
+}
+
+.helper {
+	display: none;
+	float: left;
+	margin: 0;
+	margin-left: .9em;
+	width: 20.7%;
+	min-width: 13.455em;
+	max-width: 15.525em;
+	background: black;
+	position: absolute;
+	left: auto;
+	top: 1.65em;
+	color: white;
+	opacity: 0.8;
+	-moz-border-radius-topleft: 5px;
+	-moz-border-radius-topright: 5px;
+	-webkit-border-top-left-radius: 5px;
+	-webkit-border-top-right-radius: 5px;
+	text-align: left;
+}
+
+.helper span {
+	color: #3BB81E;
+}
+div#newsfeed {
+	width: 23.7%;
+	min-width: 15.4em;
+	max-width: 17.75em;
+	height: 300px;
+	padding: .5em .5em;
+	background: white;
+	border: 0.35em solid #005599;
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	border-radius: 8px;
+	overflow: auto;
+}
+
+div#newsfeed h2 {
+	padding: 0;
+	margin: 0;
+}
+
+
+
+span.user {
+	color: #3BB81E;
+}
+span.gift {
+	color: #3FA6C8;
+}
+
+ul.stream li {
+	padding: 0;
+	margin: .4em 0;
+	overflow: hidden;
+	max-height: 2.8em;
+}
+
+/******************************
+ * gift things								*
+ *														*
+ ******************************/
+.main_content {
+	width: 67%;
+	max-width: 52.5em;
+	min-width: 41.5em;
+	padding: 3em 2em;
+	padding-bottom: 0;
+	background: white;
+	float: right;
+	overflow:hidden;
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	border-radius: 8px;
+}
+
+.marquee {
+	position: relative;
+	width: 97%;
+	height: 27.75em;
+	margin-bottom: 1em;
+	margin-right: auto;
+	margin-left: auto;
+	-webkit-box-shadow: 3px 3px 5px 5px #000;
+	-moz-box-shadow: 3px 2px 5px 5px #000;
+	box-shadow: 3px 3px 5px 0px #000;
+	overflow: hidden;
+	background: black;
+}
+
+.title {
+	position: absolute;
+	left: 0;
+	top: 0;
+	margin: 0;
+	padding-top: 0.2em;
+	padding-left: .4em;
+	min-width: 25%;
+	max-width: 95%;
+	display: none;
+	float: left;
+	color: white;
+}
+
+
+.feed_box {
+	display: none;
+	margin: 0;
+	padding: 0.3em;
+	width: 320px;
+	position: absolute;
+	background: black;
+	opacity: 0.8;
+	color: white;
+	font-size: 1.5em;
+	border-radius: 5px;
+	text-align: center;
+}
+
+.offer_link {
+	position: absolute;
+	display: none;
+	right: 0;
+	bottom: 0;
+	width: 20%;
+	height: 10%;
+	color: white;
+	background: red;
+}
+
+
+h2.caption {
+	width: 100%
+	min-width: 37em;
+	margin-right: auto;
+	margin-left: auto;
+	text-align: center;
+	margin-bottom: 2em;
+}
+
+ul.now_playing {
+	width: 98%
+	margin: 0;
+	padding: 0;
+	height: 60%;
+	overflow: hidden;
+	margin-right: auto;
+	margin-left: auto;
+
+}
+
+ul.now_playing li {
+	position: relative;
+	width: 32%;
+	height: 24%;
+	max-width: 16em;
+	max-height: 12em;
+	display: block;
+	float: left;
+	margin: .5% .5%;
+	overflow: hidden;
+	border: .1em solid black;
+	-webkit-box-shadow: 2px 2px 0px 0px #000;
+	-moz-box-shadow: 2px 2px 3px 4px #000;
+	box-shadow: 3px 3px 4px 0px #000;
+	text-align: center;
+	background: black;
+}
+
+
+/******************************
+ * Footer											*
+ *														*
+ ******************************/
+.footer {
+	clear: both;
+	width: 100%;
+	min-width: 68em;
+	height: 125px;
+	background: #352612;
+	padding: 1em;
+}
+
+ul#social li {
+	float: right;
+	margin: 0 .2em;
+	cursor: pointer;
+}
+/***GET PAGE *****************************************************************************************************************************************/
+/* Reset main_container */
+
+.main_content.get {
+	padding: 0;
+	background: #EBEBEB;
+	height: 1000px;
+}
+/* Add a gift */
+
+#get_add {
+	width: 100%;
+	height: 20px;
+	text-align: right;
+}
+
+ul#get_nav_bar{
+	margin: 0;
+	margin-bottom: .8em;
+	background: #2B698F;
+	width: 100%;
+	overflow: hidden;
+	padding-left: 3%;
+	box-shadow: .1px 3px 5px 1px #000;
+}
+
+#get_nav_bar li{
+	display: block;
+	float: left;
+	color: white;
+	font-weight: bold;
+	font-size: 1.3em;
+}
+
+#wish, .wish {
+	width: 48%;
+}
+
+#event, .event {
+	width: 32%;
+}
+
+#date, .date {
+	width: 12%;
+}
+/**************************
+ * Wish list							*
+ *												*
+ **************************/
+
+#wishlist {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	overflow: hidden;
+}
+
+#wishlist li.entry {
+	border-bottom: 3px solid gray;
+	padding: 5px 0;
+}
+
+#wishlist li.entry:hover {
+	background: rgb(206,221,231);
+}
+
+.get_list_entry {
+	overflow: hidden;
+	width: 100%;
+	margin: 0;
+	padding-left: 3%;
+}
+
+.get_list_entry li {
+	display: block;
+	float: left;
+	overflow: hidden;
+}
+
+.get_gift_img {
+	-webkit-box-shadow: 3px 3px 5px 5px #000;
+	-moz-box-shadow: 3px 2px 5px 5px #000;
+	box-shadow: 3px 3px 5px 0px #000;
+	margin-right: .5em;
+}
+
+span.get_gift_title, .get_gift_img {
+	float: left;
+}
+
+.get_gift_title, .event_title {
+	width: 50%;
+}
+
+
+.for, .on {
+	width: 10%;
+	text-align: center;
+	float: right;
+	margin-right: 1em;
+}
+
+.get_gift_privacy, .for, .on {
+	opacity: 0.5;
+	font-style: italic;
+}
+
+.get_gift_privacy {
+	padding-left: 3%;
+}
+

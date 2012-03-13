@@ -1,0 +1,109 @@
+{% extends "essentials_facebook.html" %}
+
+{% block header %}<link type="text/css" rel="stylesheet" href="/media/css/givalittle.css" />{% endblock %}
+{% block content %}
+
+	<!--<script>(function(d,s,id) {
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) return;
+		js = d.createElement(s); js.id = id;
+		js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=166511093451892";
+		fjs.parentNode.insertBefore(js,fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>-->
+
+
+	<script type="text/javascript" class="alert">
+	
+		function test() {
+			return alert("This is a link");
+		}
+	</script>
+
+	<script type="text/javascript" src="/media/jquery-1.7.1.min.js"></script>
+	<script>
+	$(document).ready(function(){
+		var on = true;
+		$("#search").focus(function() {
+			if (on)
+				$("div.helper").css('display', 'block').delay(5000).fadeOut("slow");
+			on = false;
+		});
+		$(".stream li").mousemove(function(e) {
+			var x = e.pageX + 50 + "px";
+			var y = e.pageY - 25 + "px";
+			$(this).find(".feed_box").css('left', x);
+			$(this).find(".feed_box").css('top', y);
+			$(this).find(".feed_box").show();
+		}).mouseout(function() {
+			$(this).find(".feed_box").hide();
+		});
+		$("form").submit(function() {
+			return false;
+		});
+		{% block javascript %}{% endblock %}
+	});
+	</script>
+	<div class="header">
+		<div class="wrapper">
+			<div id="logo"><img src="">MIRTHDAY<br />gifts for friends</div>
+			<div class="primary">
+				<ul class="nav">
+					<li><a class="nav" id="give" href="/give" onclick="changeClass()"; return false;">GIVE</a></li>
+					<li><a class="nav" id="get" href="/get">GET</a></li>
+					<li><a class="nav" id="got" href="">GOT</a></li>
+				</ul>
+				<span class="clear"></span>
+				<div id="account_menu"> Hi Michael
+					<ul>
+						<li><a>Account</a></li>
+						<li><a>Profile</a></li>
+						<li><a>Logout</a></li>
+					<!-- Will require database connection -->
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+
+		<div id="separator"></div>
+
+	<div class="wrapper">
+	<div class="main">
+
+		<div class="main_content">
+			{% block main_content %}{% endblock %}
+		</div>
+		<div class="friends">
+		{% block search_content %}
+		<div class="helper">Type names, phone numbers, email addresses, and @handles. <br /><span>We'll help you find what they like!</span></div>
+		<form action="" method="post">{% csrf_token %}
+		<input name="name" id="search">
+		<button id="friend_search" type="submit">FIND GIFTS</button>
+		<!--		<div class="fb-login-button" data-show-faces="true" data-width="200" data-max-rows"1" scope="user_birthday,friends_birthday,publish_actions,publish_stream">Sign in with Facebook</div>-->
+		{% endblock %}
+		</div>
+
+
+
+			<div id="newsfeed">
+				{% block feed_title %}{% endblock %}
+				<ul class="stream">
+					{% block stream %}{% endblock %}
+				</ul>
+			</div>
+	</div>
+	</div>
+
+		<div class="footer">
+			<div class="wrapper">
+			<ul id="social">
+				<li><img src="/media/Images/design/pinterest.png" width="30" height="30"></li>
+				<li><img src="/media/Images/design/rss.png" width="30" height="30"></li>
+				<li><img src="/media/Images/design/twitter.png" width="30" height="30"></li>
+				<li><img src="/media/Images/design/facebook.gif" width="30" height="30"></li>
+			</ul>
+			</div>
+		</div>
+
+{% endblock %}

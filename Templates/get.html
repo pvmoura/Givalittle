@@ -1,0 +1,59 @@
+{% extends "main_template.html" %}
+
+{% block title %}Get!{% endblock %}
+
+{% block javascript %}
+	$("body").removeClass();
+	$("body").addClass("get");
+	$(".main_content").toggleClass("get");
+{% endblock %}
+
+{% block main_content %}
+	<div id="get_add">+<img src=""></div>
+	<ul id="get_nav_bar">
+		<li id="wish">What</li>
+		<li id="event">Why</li>
+		<li id="date">When</li>
+	</ul>
+	<ul id="wishlist">
+		<li class="entry" id="first">
+			<ul class="get_list_entry">
+				<li class="wish">
+					<img class="get_gift_img" src="/media/Images/Gifts/beers.jpg" width="70px" height="50px">
+					<span class="get_gift_title">Beer tasting at Higgins Pub</span>
+					<span class="for">for</span>
+				</li>
+				<li class="event"><span class="event_title">wisdom teeth coming out</span> <span class="on">on</span></li>
+				<li class="date">Friday 2/10</li>
+			</ul>
+			<div class="get_gift_privacy">This event is private. 5 gifts max.</div>
+		</li>
+
+		<li class="entry" id="first">
+			<ul class="get_list_entry">
+				<li class="wish">
+					<img class="get_gift_img" src="/media/Images/Gifts/beers.jpg" width="70px" height="50px">
+					<span class="get_gift_title">Beer tasting at Higgins Pub</span>
+					<span class="for">for</span>
+				</li>
+				<li class="event"><span class="event_title">wisdom teeth coming out</span> <span class="on">on</span></li>
+				<li class="date">Friday 2/10</li>
+			</ul>
+			<div class="get_gift_privacy">This event is private. 5 gifts max. <span id="edit">edit</span> <span id="delete">delete</span></div>
+		</li>
+
+		<li class="entry" id="first">
+			<ul class="get_list_entry">
+				<li class="wish">
+					<img class="get_gift_img" src="/media/Images/Gifts/beers.jpg" width="70px" height="50px">
+					<span class="get_gift_title">Beer tasting at Higgins Pub</span>
+					<span class="for">for</span>
+				</li>
+				<li class="event"><span class="event_title">wisdom teeth coming out </span><span class="on">on</span></li>
+				<li class="date">Friday 2/10</li>
+			</ul>
+			<div class="get_gift_privacy">This event is private. 5 gifts max.</div>
+		</li>
+
+		</ul>
+{% endblock %}

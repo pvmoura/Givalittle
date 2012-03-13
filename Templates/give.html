@@ -1,0 +1,224 @@
+{% extends "main.html" %}
+
+{% block title %}Give!{% endblock %}
+{% block header %}
+
+		<link type="text/css" rel="stylesheet" href="/media/css/givalittle.css" />
+		<script type="text/javascript" src="/media/css/jquery.scroll.min.js"></script>
+		<script type="text/javascript" src="/media/css/jquery.placeholder.min.js"></script>
+    <link href="/media/css/scrollbar.css" type="text/css" rel="stylesheet" />
+{% endblock %}
+{% block javascript %}
+
+	var firstVisit = true;
+	$("body").addClass("give");
+	function photoHover(parent) {
+		$(parent + " .gift_pic").addClass("opaque");
+		$(parent + " .price").fadeIn("fast");
+		$(parent + " .offer").fadeIn("fast");
+	}
+	function hoverOut(parent){
+		$(parent + " .gift_pic").removeClass("opaque");
+		$(parent + " .price").fadeOut("fast");
+		$(parent + " .offer").fadeOut("fast");			
+	}
+
+	$('input, textarea').placeholder();
+	$('.scrollbar').scrollbar({ arrows: false, handleHeight: 55 });
+	$(".marquee").hover(function() {photoHover(".marquee");}, function(){ hoverOut(".marquee");});
+	$(".gift").hover(function () {var parent = ".gift#" + this.id; photoHover(parent);}, function(){ var parent = ".gift#" + this.id; hoverOut(parent);});
+	$("#arrow_right").click(function() {$(this).toggle();$("#down").toggle();$(".zip_code").toggle();$(".search").addClass("change"); });
+	
+	$("#down").click(function() {$(this).toggle();$("#arrow_right").toggle();$(".zip_code").toggle();$(".search").removeClass("change"); });
+	$(".feed li").mousemove(function(e) {
+		var x = e.pageX + 50 + "px";
+		var y = e.pageY - 25 + "px";
+		var id = this.id;
+		$(".feed_box").css({'left': x, 'top': y});
+		$(".feed_box").show();
+
+	}).mouseout(function() {
+		$(".feed_box").hide();
+	});
+
+if (firstVisit){
+$(function() {
+
+   var docHeight = $(document).height();
+   var docWidth = $(document).width() / 2 - 247;
+
+   $("body").append("<div id='overlay'></div>");
+
+   $("#overlay")
+      .height(docHeight)
+      .css({
+         'opacity' : 0.8,
+         'position': 'absolute',
+         'top': 0,
+         'left': 0,
+         'background-color': 'black',
+         'width': '100%',
+         'z-index': 5000
+      });
+		$(".land").css('left', docWidth).show();
+});
+}
+
+$("#poke").click(function() {
+	$(".land").hide();
+	$("#overlay").remove();
+	firstVisit = false;
+});
+{% endblock %}
+
+{% block main_content %}
+<div class="land">
+	<p>The gift of giving.</p>
+	<p>Get it now.</p>
+	<img id="facebook" src="/media/Images/design/login_fb.gif"></img>
+	<img id="twitter" src="/media/Images/design/login_twitter.gif"></img>
+	<div class="email">sign up with <span class="decorate">email</span></div>
+	<div id="poke">or just poke <span class="decorate">around</span></div>
+</div>
+<div class="feed_box"><span class="person">Emily Lamont</span> bought <span class="person">Michael Koenigs</span> a <span class="decorate">Happy Meals</span> for his birthday. "You will always be young at heart, Michael. Just thought you needed a reminder of just quite how young you seem to act sometimes. JK, totally love ya!"</div>
+<div class="main_stuff">
+	<div class="newsfeed">
+		<img id="facebook" src="/media/Images/design/login_fb.gif"></img>
+		<img id="twitter" src="/media/Images/design/login_twitter.gif"></img>
+		<div id="email">or sign up with <span class="decorate">email</span></div>
+		<ul class="feed scrollbar">
+			<li id="01">Emily bought Michael a <span class="decorate">Happy Meal</span>. "You will always be young at heart, Mike. Just thought y..."
+
+			</li>
+			<li>Michael bought Derek Jeter a <span class="decorate">Protein Shake at GNC</span>. "The Bronx bomber cannot be stop..."
+			</li>
+			<li>Margaret bough Kim Kardashian a <span class="decorate">Blake Griffith jersey</span>. "Burn this. On me."
+			</li>
+			<li>Xander bought Lindsay <span class="decorate">There Will Be Blood</span>. "Watch it and think of me!"
+			</li>
+			<li>Chris bought Xander, Michael and Mary <span class="decorate">Bananagrams for Mobile</span>.
+			</li>
+			<li>Jenny bought Joseph an <span class="decorate">Orange Mocha Frappuccino</span>.
+			</li>
+			<li>Emily bought Michael a <span class="decorate">Happy Meal</span>. "You will always be young at heart, Mike. Just thought y..."
+			</li>
+		</ul>
+	</div>
+	<div class="search_marquee">
+		<div class="search_gifts">
+			<div class="search">
+			<form action="" method="post">{% csrf_token %}
+			<input name="gift_search" id="gift_search" placeholder="   Search Gifts">
+			<span id="near">near New York City</span><img id="arrow_right" src="/media/Images/design/right_arrow.gif"><img id="down" src="/media/Images/design/down_arrow.gif">
+			</div>
+		<div class="zip_code">
+			<form action="" method="post">{% csrf_token %}
+			<input name="zip_search" id="zip_search" placeholder="   Enter Zip">
+			<button id="go">Go</button>
+			<span id="or">or</span>
+			<ul id="cities">
+				<li>Denver</li>
+				<li>New Haven</li>
+				<li>Los Angeles</li>	
+				<li>New York City</li>
+			</ul>
+		</div>
+		</div>
+		<div class="top_separator"></div>
+		<div class="marquee">
+			<img class="gift_pic" src="/media/Images/Gifts/starbucks1.gif">
+			<div class="price"><img src="/media/Images/design/featured_price.gif"><span class="price_text">$4.95</span></div>
+			<div class="offer"><img src="/media/Images/design/featured_viewoffer.gif"></div>
+		</div>
+		<div class="marquee_caption">
+			<p>Orange Mocha Frappuccino at Starbucks</p>
+			<ul class="dots">
+				<li class="selected"></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
+	</div>
+</div>
+	<ul class="gifts">
+		<li>
+			<div class="gift" id="1">
+				<img class="gift_pic" src="/media/Images/Gifts/beers.jpg">
+				<div class="price"><img src="/media/Images/design/gift_price.gif"><span class="price_text">$11.99</span></div>
+				<div class="offer"><img src="/media/Images/design/gift_viewoffer.gif"></div>
+			</div>
+			<p class="title">Flower Bouquet at Blum's Midtown Blooms</p>
+		</li>
+		<li>			
+			<div class="gift" id="2">
+				<img class="gift_pic" src="/media/Images/Gifts/beers.jpg">
+				<div class="price"><img src="/media/Images/design/gift_price.gif"><span class="price_text">$11.99</span></div>
+				<div class="offer"><img src="/media/Images/design/gift_viewoffer.gif"></div>
+			</div>
+			<p class="title">Floral Design at Rachminaninoff's Symphonic S...</p>
+		</li>
+		<li>
+			<div class="gift" id="3">
+				<img class="gift_pic" src="/media/Images/Gifts/beers.jpg">
+				<div class="price"><img src="/media/Images/design/gift_price.gif"><span class="price_text">$11.99</span></div>
+				<div class="offer"><img src="/media/Images/design/gift_viewoffer.gif"></div>
+			</div>
+			<p class="title">Botanical Gardens Tour at Brooklyn Herbologist Society</p>
+		</li>
+		<li>
+			<div class="gift" id="4">
+				<img class="gift_pic" src="/media/Images/Gifts/beers.jpg">
+				<div class="price"><img src="/media/Images/design/gift_price.gif"><span class="price_text">$11.99</span></div>
+				<div class="offer"><img src="/media/Images/design/gift_viewoffer.gif"></div>
+			</div>
+			<p class="title">Flower Bouquet at Blum's Midtown Blooms</p>
+		</li>
+		<li>
+			<div class="gift" id="5"> 
+				<img class="gift_pic" src="/media/Images/Gifts/beers.jpg">
+				<div class="price"><img src="/media/Images/design/gift_price.gif"><span class="price_text">$11.99</span></div>
+				<div class="offer"><img src="/media/Images/design/gift_viewoffer.gif"></div>
+			</div>
+			<p class="title">Flower Bouquet at Blum's Midtown Blooms</p>
+		</li>
+		<li>
+			<div class="gift" id="6">
+				<img class="gift_pic" src="/media/Images/Gifts/beers.jpg">
+				<div class="price"><img src="/media/Images/design/gift_price.gif"><span class="price_text">$11.99</span></div>
+				<div class="offer"><img src="/media/Images/design/gift_viewoffer.gif"></div>
+			</div>
+			<p class="title">Flower Bouquet at Blum's Midtown Blooms</p>
+		</li>
+		<li>
+			<div class="gift" id="7">
+				<img class="gift_pic" src="/media/Images/Gifts/beers.jpg">
+				<div class="price"><img src="/media/Images/design/gift_price.gif"><span class="price_text">$11.99</span></div>
+				<div class="offer"><img src="/media/Images/design/gift_viewoffer.gif"></div>
+			</div>
+			<p class="title">Flower Bouquet at Blum's Midtown Blooms</p>
+		</li>
+		<li>
+			<div class="gift" id="8">
+				<img class="gift_pic" src="/media/Images/Gifts/beers.jpg">
+				<div class="price"><img src="/media/Images/design/gift_price.gif"><span class="price_text">$11.99</span></div>
+				<div class="offer"><img src="/media/Images/design/gift_viewoffer.gif"></div>
+			</div>
+			<p class="title">Flower Bouquet at Blum's Midtown Blooms</p>
+		</li>
+		<li>
+			<div class="gift" id="9">
+				<img class="gift_pic" src="/media/Images/Gifts/beers.jpg">
+				<div class="price"><img src="/media/Images/design/gift_price.gif"><span class="price_text">$11.99</span></div>
+				<div class="offer"><img src="/media/Images/design/gift_viewoffer.gif"></div>
+			</div>
+			<p class="title">Flower Bouquet at Blum's Midtown Blooms</p>
+		</li>
+	<ul>
+{% endblock %}
+
+

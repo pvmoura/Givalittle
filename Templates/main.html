@@ -1,0 +1,53 @@
+{% extends "essentials_facebook.html" %}
+
+{% block content %}
+
+	<!--<script>(function(d,s,id) {
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) return;
+		js = d.createElement(s); js.id = id;
+		js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=166511093451892";
+		fjs.parentNode.insertBefore(js,fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>-->
+
+
+	<script>
+	$(document).ready(function(){
+		{% block javascript %}{% endblock %}
+	});
+	</script>
+	<div class="header">
+		<div class="wrapper header">
+			<img id="logo_img" src="/media/Images/design/logo.gif"><div id="logo">GivaLittle</div>
+				<ul class="nav">
+					<li><a id="give" href="/give">Give</a></li>
+					<li><a id="get" href="/get">Get</a></li>
+					<li><a id="got" href="">Got</a></li>
+					<li><a id="sign_in">Sign In</a></li>					
+				</ul>
+		</div>
+
+	</div>
+
+
+		<div id="separator"></div>
+	<div class="main">
+	<div class="wrapper main">
+
+		{% block main_content %}{% endblock %}
+
+	
+	</div>
+	</div>
+		<div class="footer">
+			<div class="wrapper footer">
+			<ul id="social">
+				<li><img src="/media/Images/design/pinterest.png" width="30" height="30"></li>
+				<li><img src="/media/Images/design/rss.png" width="30" height="30"></li>
+				<li><img src="/media/Images/design/twitter.png" width="30" height="30"></li>
+				<li><img src="/media/Images/design/facebook.gif" width="30" height="30"></li>
+			</ul>
+			</div>
+		</div>
+
+{% endblock %}

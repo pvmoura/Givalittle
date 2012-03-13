@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>{% block title %}{% endblock %}</title>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+		{% block header %}{% endblock %}
+		
+	</head>
+	<body class="">
+		<div id="fb-root"></div>
+		<script>
+			window.fbAsyncInit = function() {
+				FB.init({
+					appID						: "166511093451892"
+					status					: true,
+					cookie					: true,
+					xfbml						: true
+				});
+			};
+
+			(function(d) {
+				var js, id = "facebook-jssdk"; if (d.getElementById(id)) {return;}
+				var js = d.createElement("script"); js.id = id; js.async = true;
+				js.src = "//connect.facebook.net/en_us/all.js";
+				d.getElementByTagName("head")[0].appendChild(js);
+			} (document));
+		</script>
+
+		{% block content %}{% endblock %}
+
+	</body>
+</html>
